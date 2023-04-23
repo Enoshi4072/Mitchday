@@ -1,0 +1,57 @@
+#include "main.h"
+
+/**
+ * exec_command - Execute a given command with optional input/output redirection
+ *                and piping.
+ * @args: List of arguments to the command.
+ * @redir_argv: List of arguments to use for input/output redirection.
+ * @wait: Whether to wait for child process to complete.
+ * @res: Result of previous command.
+ */
+
+void exec_command(char **args, char **redir_argv, int wait, int res)
+{
+    /* Check if the command matches a built-in command and execute it if it does.*/
+    for (int i = 0; i < simple_shell_num_builtins(); i++)
+    {
+        if (strcmp(args[0], builtin_str[i]) == 0)
+        {
+            (*builtin_func[i])(args);
+            res = 1;
+        }
+    }
+
+    /* Execute non-built-in command */
+    if (res == 0)
+    {
+        int status;
+
+        /* Create child process */
+        pid_t pid = fork();
+        if (pid == 0)
+        {
+            /* Child process */
+            if (res == 0) 
+                res = simple_shell_redirect(args, redir_argv);
+            if (res == 0) 
+                res = simple_shell_pipe(args);
+            if (res == 0) 
+                execvp(args[0], args);
+            exit(EXIT_SUCCESS);
+        }
+        else if (pid < 0) /* Error occurred while creating child process */
+        {
+            perror("Error: Error forking");
+            exit(EXIT_FAILURE);
+        }
+        else /* Execute process in background or foreground*/
+        {
+            /* Parent process */
+            /* printf("[LOGGING] Parent pid = <%d> spawned a child pid = <%d>.\n", getpid(), pid);*/
+            if (wait == 1)
+            {
+                waitpid(pid, &status, WUNTRACED);
+            }
+        }
+    }
+}
