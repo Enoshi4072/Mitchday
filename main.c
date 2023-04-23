@@ -5,16 +5,16 @@
  */
 int main(void) {
 	 /* Array to hold program arguments */
-char *prog_args[BUFFER_SIZE];
+char *prog_args[SIZE_OF_BUFFER];
 
 /* Input */
-char pro_input[MAX_LINE_LENGTH];
+char pro_input[LINE_BUFFER];
 
 /* Copy of the input line */
-char t_pro_input[MAX_LINE_LENGTH];
+char t_pro_input[LINE_BUFFER];
 
 /* Command history */
-char prog_hist[MAX_LINE_LENGTH] = "commands are absent in history";
+char prog_hist[LINE_BUFFER] = "commands are absent in history";
 
 /* To hold arguments for Input-output re-direction */
 char *ar_vec_read[REDIR_SIZE];

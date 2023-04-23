@@ -11,7 +11,7 @@ void parse_command(char *input_string, char **argv, int *wait)
 {
     int b = 0;
 
-    while (b < BUFFER_SIZE)
+    while (b < SIZE_OF_BUFFER)
     {
         argv[b] = NULL;
         b++;

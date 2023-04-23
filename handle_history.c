@@ -32,8 +32,8 @@ int k_puts(const char *s) {
  */
 int simple_shell_history(char *prog_hist, char **args_red)
 {
-    char *args_pres[BUFFER_SIZE];
-    char pres_cmd[MAX_LINE_LENGTH];
+    char *args_pres[SIZE_OF_BUFFER];
+    char pres_cmd[LINE_BUFFER];
     int wait_ex;
     int num_results;
 

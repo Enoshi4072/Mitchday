@@ -15,8 +15,8 @@
 #include <errno.h>
 
 /* Defines */
-#define MAX_LINE_LENGTH 1024
-#define BUFFER_SIZE 64
+#define LINE_BUFFER 1024
+#define SIZE_OF_BUFFER 64
 #define REDIR_SIZE 2
 #define PIPE_SIZE 3
 #define MAX_HISTORY_SIZE 128

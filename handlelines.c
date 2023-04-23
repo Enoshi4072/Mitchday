@@ -50,6 +50,6 @@ void read_line(char *prog_in)
         exit(EXIT_SUCCESS);
     }
 
-    strncpy(prog_in, line, MAX_LINE_LENGTH);
+    strncpy(prog_in, line, LINE_BUFFER);
     free(line);
 }
