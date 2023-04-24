@@ -5,7 +5,7 @@
  *
  * Return: 0 (not used).
  */
-int simple_shell_exit(char **args __attribute__((unused))) {
-    running = 0;
-    return running;
+int ss_exit(char **args __attribute__((unused))) {
+    T_run = 0;
+    return T_run;
 }

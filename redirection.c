@@ -7,7 +7,7 @@
  *
  * Return: The index of the first redirection operator found, or 0 if none are found
  */
-int is_redirect(char **arg_vect)
+int redir_tr(char **arg_vect)
 {
     /* Declare an integer variable to hold the index of a redirection operator in the argument vector */
     int b = 0;
@@ -16,9 +16,9 @@ int is_redirect(char **arg_vect)
     while (arg_vect[b] != NULL)
     {
         /* Check if the current argument matches any of the redirection operators */
-        if (strcmp(arg_vect[b], TOFILE_DIRECT) == 0 ||
-            strcmp(arg_vect[b], APPEND_TOFILE_DIRECT) == 0 ||
-            strcmp(arg_vect[b], FROMFILE) == 0)
+        if (strcmp(arg_vect[b], D_FILE) == 0 ||
+            strcmp(arg_vect[b], A_FILE) == 0 ||
+            strcmp(arg_vect[b], F_FILE) == 0)
         {
             /* If a redirection operator is found, return its index */
             return b;
@@ -37,13 +37,13 @@ int is_redirect(char **arg_vect)
  *
  * Return: Index of the pipe character if it exists, 0 otherwise.
  */
-int is_pipe(char **arg_vect)
+int pipe_tr(char **arg_vect)
 {
     int b = 0;
 
     while (arg_vect[b] != NULL)
     {
-        if (strcmp(arg_vect[b], PIPE_OPT) == 0)
+        if (strcmp(arg_vect[b], P_CHOICE) == 0)
         {
             return b; /* Pipe character found */
         }
@@ -64,7 +64,7 @@ int is_pipe(char **arg_vect)
  *
  * Return: None
  */
-void parse_redirect(char **input, char **output, int redirect_pos) {
+void redir_parser(char **input, char **output, int redirect_pos) {
     output[0] = strdup(input[redirect_pos]);
     output[1] = strdup(input[redirect_pos + 1]);
     input[redirect_pos] = NULL;
@@ -82,7 +82,7 @@ void parse_redirect(char **input, char **output, int redirect_pos) {
  * @child_args_right: Output array of arguments after the pipe
  * @pipe_index: Index of the pipe symbol in the input array
  */
-void parse_pipe(char **args, char **child_args_left, char **child_args_right, int pipe_index)
+void p_parser(char **args, char **child_args_left, char **child_args_right, int pipe_index)
 {
     int i = 0;
 

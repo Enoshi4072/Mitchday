@@ -5,9 +5,9 @@
  *
  * Return: none
  */
-void error_alert(char *msg)
+void error_h(char *msg)
 {
-    k_puts(prompt());
+    k_puts(prompt_entry());
     k_puts(msg);
 }
 
@@ -35,7 +35,7 @@ void remove_null_term_char(char *prog_input)
  *
  * Return: none
  */
-void read_line(char *prog_in)
+void l_reader(char *prog_in)
 {
     char *line = NULL;
     size_t len = 0;

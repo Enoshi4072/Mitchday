@@ -7,7 +7,7 @@
  *
  * Return: none
  */
-void parse_command(char *input_string, char **argv, int *wait)
+void cmd_parser(char *input_string, char **argv, int *wait)
 {
     int b = 0;
 

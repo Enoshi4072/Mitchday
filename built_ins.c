@@ -12,11 +12,11 @@ char *builtin_str[] = {
 };
 /* The corresponding functions */
 int (*builtin_func[])(char **) = {
-    &simple_shell_cd,
-    &simple_shell_help,
-    &simple_shell_exit
+    &ss_cd,
+    &ss_help,
+    &ss_exit
 };
-int simple_shell_num_builtins()
+int ss_builtins()
 {
     return sizeof(builtin_str) / sizeof(char *);
 }
@@ -26,7 +26,7 @@ int simple_shell_num_builtins()
  *
  * Return: 1 on success, 0 on failure
  */
-int simple_shell_cd(char **argv)
+int ss_cd(char **argv)
 {
     if (argv[1] == NULL)
     {
@@ -47,7 +47,7 @@ int simple_shell_cd(char **argv)
  *
  * Return: 0 on success, 1 on failure
  */
-int simple_shell_help(char **argv)
+int ss_help(char **argv)
 {
     static char help_team_information[] =
         "ALX SIMPLE SHELL PROJECT\n";
@@ -75,11 +75,11 @@ int simple_shell_help(char **argv)
     }
     return 0;
 }
-void exec_command(char **args, char **redir_argv, int wait, int res)
+void cmd_ex(char **args, char **redir_argv, int wait, int res)
 {
     /* Check if the command matches a built-in command and execute it if it does.*/
 	int i;
-    for (i = 0; i < simple_shell_num_builtins(); i++)
+    for (i = 0; i < ss_builtins(); i++)
     {
         if (strcmp(args[0], builtin_str[i]) == 0)
         {
@@ -99,9 +99,9 @@ void exec_command(char **args, char **redir_argv, int wait, int res)
         {
             /* Child process */
             if (res == 0)
-                res = simple_shell_redirect(args, redir_argv);
+                res = ss_redir(args, redir_argv);
             if (res == 0)
-                res = simple_shell_pipe(args);
+                res = pipe_ss(args);
             if (res == 0)
                 execvp(args[0], args);
             exit(EXIT_SUCCESS);

@@ -3,7 +3,7 @@
  * exec_child - Executes a child process with the given arguments.
  * @argv: Array of strings containing the command and its arguments.
  */
-void exec_child(char **arg_vect)
+void ch_ex(char **arg_vect)
 {
 	  if (access(arg_vect[0], X_OK) != 0) {
         fprintf(stderr, "Error: Command '%s' not found\n", arg_vect[0]);
@@ -20,7 +20,7 @@ void exec_child(char **arg_vect)
  * @argv: Array of strings containing the command and its arguments.
  * @dir: Array of strings containing the redirection arguments.
  */
-void exec_child_overwrite_from_file(char **arg_vect, char **dest)
+void ch_ovwrt_ex(char **arg_vect, char **dest)
 {
     int input_fd = open(dest[1], O_RDONLY);
     if (input_fd == -1)
@@ -37,14 +37,14 @@ void exec_child_overwrite_from_file(char **arg_vect, char **dest)
         exit(EXIT_FAILURE);
     }
 
-    exec_child(arg_vect);
+    ch_ex(arg_vect);
 }
 /**
  * exec_child_overwrite_to_file - Executes a child process with output redirected to a file.
  * @argv: Array of strings containing the command and its arguments.
  * @dir: Array of strings containing the redirection arguments.
  */
-void exec_child_overwrite_to_file(char **arg_vect, char **dest)
+void ch_ovwrt_ex_f(char **arg_vect, char **dest)
 {
     int output_fd = creat(dest[1], S_IRWXU);
     if (output_fd == -1)
@@ -61,5 +61,5 @@ void exec_child_overwrite_to_file(char **arg_vect, char **dest)
         exit(EXIT_FAILURE);
     }
 
-    exec_child(arg_vect);
+    ch_ex(arg_vect);
 }

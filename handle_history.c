@@ -17,7 +17,6 @@ int k_puts(const char *s) {
     return ret;
 }
 
-
 /**
  * simple_shell_history - display and execute a command from history
  * @history: a string containing the history of commands
@@ -30,7 +29,7 @@ int k_puts(const char *s) {
  *
  * Return: 0 on success, 1 on failure
  */
-int simple_shell_history(char *prog_hist, char **args_red)
+int ss_hist(char *prog_hist, char **args_red)
 {
     char *args_pres[SIZE_OF_BUFFER];
     char pres_cmd[LINE_BUFFER];
@@ -45,8 +44,8 @@ int simple_shell_history(char *prog_hist, char **args_red)
 
     strcpy(pres_cmd, prog_hist);
     k_puts(pres_cmd);
-    parse_command(pres_cmd, args_pres, &wait_ex);
+    cmd_parser(pres_cmd, args_pres, &wait_ex);
     num_results = 0;
-    exec_command(args_pres, args_red, wait_ex, num_results);
+    cmd_ex(args_pres, args_red, wait_ex, num_results);
     return num_results;
 }

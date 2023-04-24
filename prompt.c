@@ -4,7 +4,7 @@
  *
  * Return: Pointer to the current working directory.
  */
-char *get_current_dir() {
+char *dir_get() {
     char cwd[FILENAME_MAX];
     char*result = getcwd(cwd, sizeof(cwd));
     return result;
@@ -15,12 +15,12 @@ char *get_current_dir() {
  * @param None
  * @return A pointer to the prompt string
  */
-char *prompt() {
+char *prompt_entry() {
     static char *_prompt = NULL;
     char* username;
 
     if (_prompt == NULL) {
-        _prompt = malloc(PROMPT_MAX_LENGTH * sizeof(char));
+        _prompt = malloc(M_L_PROMPT * sizeof(char));
         if (_prompt == NULL) {
             perror("Error: Unable to allocate memory");
             exit(EXIT_FAILURE);
@@ -28,7 +28,7 @@ char *prompt() {
     }
 
     /* Clear prompt */
-    memset(_prompt, 0, PROMPT_MAX_LENGTH);
+    memset(_prompt, 0, M_L_PROMPT);
 
     /* Append default shell name */
     username = getenv("USER");

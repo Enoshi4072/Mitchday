@@ -6,7 +6,7 @@
 /**
  * init_shell - Initializes the shell
  */
-void init_shell(void)
+void ss_init(void)
 {
     char *name_of_prog = getenv("USER");
     puts("\nCurrent user: @");
