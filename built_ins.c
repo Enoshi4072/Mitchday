@@ -21,7 +21,7 @@ int ss_builtins()
     return sizeof(builtin_str) / sizeof(char *);
 }
 /**
- * simple_shell_cd - Changes the current working directory
+ * ss_cd - Changes the current working directory
  * @argv: array of arguments
  *
  * Return: 1 on success, 0 on failure
@@ -42,7 +42,7 @@ int ss_cd(char **argv)
     return (1);
 }
 /**
- * simple_shell_help - Displays information about built-in commands
+ * ss_help - Displays information about built-in commands
  * @argv: array of arguments
  *
  * Return: 0 on success, 1 on failure

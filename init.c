@@ -1,10 +1,7 @@
 #include "main.h"
 
 /**
- * init_shell - Initializes the shell
- */
-/**
- * init_shell - Initializes the shell
+ * ss_init - Initializes the shell
  */
 void ss_init(void)
 {

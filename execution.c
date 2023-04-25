@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * exec_child - Executes a child process with the given arguments.
+ * ch_ex - Executes a child process with the given arguments.
  * @argv: Array of strings containing the command and its arguments.
  */
 void ch_ex(char **arg_vect)
@@ -16,7 +16,7 @@ void ch_ex(char **arg_vect)
     }
 }
 /**
- * exec_child_overwrite_from_file - Executes a child process with input redirected from a file.
+ * ch_ovwrt_ex - Executes a child process with input redirected from a file.
  * @argv: Array of strings containing the command and its arguments.
  * @dir: Array of strings containing the redirection arguments.
  */
@@ -40,7 +40,7 @@ void ch_ovwrt_ex(char **arg_vect, char **dest)
     ch_ex(arg_vect);
 }
 /**
- * exec_child_overwrite_to_file - Executes a child process with output redirected to a file.
+ * ch_ovwrt_ex_f - Executes a child process with output redirected to a file.
  * @argv: Array of strings containing the command and its arguments.
  * @dir: Array of strings containing the redirection arguments.
  */

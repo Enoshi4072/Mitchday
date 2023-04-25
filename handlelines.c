@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * error_alert - prints an error message with the prompt
+ * error_h - prints an error message with the prompt
  * @msg: the error message to print
  *
  * Return: none
@@ -12,7 +12,7 @@ void error_h(char *msg)
 }
 
 /**
- * remove_end_of_line - removes the newline character from a string
+ * remove_null_term_char - removes the newline character from a string
  * @line: the string to remove the newline character from
  *
  * Return: the modified string
@@ -30,7 +30,7 @@ void remove_null_term_char(char *prog_input)
 }
 
 /**
- * read_line - reads a line from stdin
+ * l_reader - reads a line from stdin
  * @line: a buffer to store the line read from stdin
  *
  * Return: none

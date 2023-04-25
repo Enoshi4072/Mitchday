@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * simple_shell_redirect - Redirects input/output of commands.
+ * ss_redir - Redirects input/output of commands.
  * @command_args: List of arguments to the command.
  * @redirection_args: List of arguments to the redirection operator.
  *

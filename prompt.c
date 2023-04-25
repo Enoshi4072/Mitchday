@@ -1,17 +1,17 @@
 #include "main.h"
 /**
- * get_current_dir - Get the current working directory.
+ * dir_get - Get the current working directory.
  *
  * Return: Pointer to the current working directory.
  */
 char *dir_get() {
-    char cwd[FILENAME_MAX];
-    char*result = getcwd(cwd, sizeof(cwd));
-    return result;
+    char c_dir[FILENAME_MAX];
+    char*rlt = getcwd(c_dir, sizeof(c_dir));
+    return rlt;
 }
 
 /**
- * Initializes the Shell prompt in the format YYYY-MM-dd <space> hour:minute:second <space> default shell name <space> >
+ * prompt_entry - Initializes the Shell prompt
  * @param None
  * @return A pointer to the prompt string
  */

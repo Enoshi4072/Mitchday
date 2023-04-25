@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * execute_pipe_command - Executes a pipe command.
+ * pipe_ss - Executes a pipe command.
  * @args: List of arguments to the command.
  *
  * Return: 1 if pipe is performed, 0 otherwise.

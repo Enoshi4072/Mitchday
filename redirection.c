@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * is_redirect - Checks if the argument vector contains a redirection operator
+ * redir_tr - Checks if the argument vector contains a redirection operator
  *
  * @arg_vect: The argument vector to check
  *
@@ -32,7 +32,7 @@ int redir_tr(char **arg_vect)
     return (0);
 }
 /**
- * is_pipe - Checks if a pipe character exists in argv.
+ * pipe_tr - Checks if a pipe character exists in argv.
  * @argv: Array of strings to check.
  *
  * Return: Index of the pipe character if it exists, 0 otherwise.
@@ -52,7 +52,7 @@ int pipe_tr(char **arg_vect)
     return (0); /* Pipe character not found */
 }
 /**
- * parse_redirect - Extracts the redirection arguments from an array of strings
+ * redir_parser - Extracts the redirection arguments from an array of strings
  *
  * @input: The input array of strings
  * @output: The output array of strings to hold the redirection arguments
@@ -76,7 +76,7 @@ void redir_parser(char **input, char **output, int redirect_pos) {
 }
 
 /**
- * parse_pipe - Function to parse arguments for piping
+ * p_parser - Function to parse arguments for piping
  * @args: Input array of arguments
  * @child_args_left: Output array of arguments before the pipe
  * @child_args_right: Output array of arguments after the pipe

@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * parse_command - Parses the input string from the user into arguments
+ * cmd_parser - Parses the input string from the user into arguments
  * @input_string: the string input from the user
  * @argv: an array of strings to store the arguments
  * @wait: a pointer to an integer that determines whether the command should be executed in the background or not

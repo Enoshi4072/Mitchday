@@ -1,24 +1,28 @@
 #include "main.h"
 
 /**
-puts - Outputs a string to stdout and appends a newline character
-@s: The string to output
-Return: The number of characters printed, including the newline
+ * k_puts - Outputs a string to stdout and appends a newline character
+ * @s: The string to output
+ * Return: The number of characters printed, including the newline
 */
 
-int k_puts(const char *s) {
+int k_puts(const char *s)
+{
     int len = strlen(s);
     int ret = fwrite(s, sizeof(char), len, stdout);
-    if (ret == len) {
+    if (ret == len)
+    {
         ret += fwrite("\n", sizeof(char), 1, stdout);
-    } else {
+    }
+    else
+    {
         return EOF;
     }
     return ret;
 }
 
 /**
- * simple_shell_history - display and execute a command from history
+ * ss_hist - display and execute a command from history
  * @history: a string containing the history of commands
  * @redir_args: an array of strings containing arguments for redirection
  *

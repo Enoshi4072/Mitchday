@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * exec_child_append_to_file - Executes a child process with output redirected to a file with append mode.
+ * ch_ex_a_f - Executes a child process with output redirected to a file with append mode.
  * @argv: Array of strings containing the command and its arguments.
  * @dir: Array of strings containing the redirection arguments.
  */
@@ -20,10 +20,9 @@ void ch_ex_a_f(char **arg_vect, char **dest) {
     }
     ch_ex(arg_vect);
 }
-/* void exec_parent(pid_t child_pid, int *bg) {} */
 
 /**
- * exec_child_pipe - Performs communication between two commands via Pipe
+ * ch_p_ex - Performs communication between two commands via Pipe
  * @argv_in: array of arguments for child 1
  * @argv_out: array of arguments for child 2
  *
